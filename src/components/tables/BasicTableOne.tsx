@@ -43,7 +43,7 @@ const tableData: Order[] = [
       ],
     },
     budget: "3.9K",
-    status: "Active",
+    status: "Activo",
   },
   {
     id: 2,
@@ -57,7 +57,7 @@ const tableData: Order[] = [
       images: ["/images/user/user-25.jpg", "/images/user/user-26.jpg"],
     },
     budget: "24.9K",
-    status: "Pending",
+    status: "Pendiente",
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ const tableData: Order[] = [
       images: ["/images/user/user-27.jpg"],
     },
     budget: "12.7K",
-    status: "Active",
+    status: "Activo",
   },
   {
     id: 4,
@@ -89,7 +89,7 @@ const tableData: Order[] = [
       ],
     },
     budget: "2.8K",
-    status: "Cancel",
+    status: "Cancelado",
   },
   {
     id: 5,
@@ -107,7 +107,7 @@ const tableData: Order[] = [
       ],
     },
     budget: "4.5K",
-    status: "Active",
+    status: "Activo",
   },
 ];
 
@@ -124,31 +124,31 @@ export default function BasicTableOne() {
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  User
+                  Usuario
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  Project Name
+                  Nombre del Proyecto
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  Team
+                  Equipo
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  Status
+                  Estado
                 </TableCell>
                 <TableCell
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  Budget
+                  Presupuesto
                 </TableCell>
               </TableRow>
             </TableHeader>
@@ -191,7 +191,7 @@ export default function BasicTableOne() {
                             width={24}
                             height={24}
                             src={teamImage}
-                            alt={`Team member ${index + 1}`}
+                            alt={`Miembro del equipo ${index + 1}`}
                             className="w-full"
                           />
                         </div>
@@ -202,9 +202,9 @@ export default function BasicTableOne() {
                     <Badge
                       size="sm"
                       color={
-                        order.status === "Active"
+                        order.status === "Activo"
                           ? "success"
-                          : order.status === "Pending"
+                          : order.status === "Pendiente"
                           ? "warning"
                           : "error"
                       }

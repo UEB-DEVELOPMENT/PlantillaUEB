@@ -38,18 +38,18 @@ export default function BarChartOne() {
     },
     xaxis: {
       categories: [
-        "Jan",
+        "Ene",
         "Feb",
         "Mar",
-        "Apr",
+        "Abr",
         "May",
         "Jun",
         "Jul",
-        "Aug",
+        "Ago",
         "Sep",
         "Oct",
         "Nov",
-        "Dec",
+        "Dic",
       ],
       axisBorder: {
         show: false,
@@ -91,7 +91,7 @@ export default function BarChartOne() {
   };
   const series = [
     {
-      name: "Sales",
+      name: "Ventas",
       data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
     },
   ];

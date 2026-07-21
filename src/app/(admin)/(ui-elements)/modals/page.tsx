@@ -8,16 +8,16 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Next.js Modals | TailAdmin - Next.js Dashboard Template",
+  title: "Modales | UEB - Dashboard",
   description:
-    "This is Next.js Modals page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
+    "Página de modales para el dashboard de la Universidad Estatal de Bolívar",
   // other metadata
 };
 
 export default function Modals() {
   return (
     <div>
-      <PageBreadcrumb pageTitle="Modals" />
+      <PageBreadcrumb pageTitle="Modales" />
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-2 xl:gap-6">
         <DefaultModal />
         <VerticallyCenteredModal />

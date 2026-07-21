@@ -11,31 +11,31 @@ export default function ModalBasedAlerts() {
   const warningModal = useModal();
   const errorModal = useModal();
   return (
-    <ComponentCard title="Modal Based Alerts">
+    <ComponentCard title="Alertas Basadas en Modal">
       <div className="flex flex-wrap items-center gap-3">
         <button
           onClick={successModal.openModal}
           className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-success-500 shadow-theme-xs hover:bg-success-600"
         >
-          Success Alert
+          Alerta de Éxito
         </button>
         <button
           onClick={infoModal.openModal}
           className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-blue-light-500 shadow-theme-xs hover:bg-blue-light-600"
         >
-          Info Alert
+          Alerta de Información
         </button>
         <button
           onClick={warningModal.openModal}
           className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-warning-500 shadow-theme-xs hover:bg-warning-600"
         >
-          Warning Alert
+          Alerta de Advertencia
         </button>
         <button
           onClick={errorModal.openModal}
           className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-error-500 shadow-theme-xs hover:bg-error-600"
         >
-          Danger Alert
+          Alerta de Peligro
         </button>
       </div>
       {/* Success Modal */}
@@ -80,7 +80,7 @@ export default function ModalBasedAlerts() {
             </span>
           </div>
           <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
-            Well Done!
+            ¡Bien Hecho!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
             Lorem ipsum dolor sit amet consectetur. Feugiat ipsum libero tempor
@@ -92,7 +92,7 @@ export default function ModalBasedAlerts() {
               type="button"
               className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-success-500 shadow-theme-xs hover:bg-success-600 sm:w-auto"
             >
-              Okay, Got It
+              Está Bien, Entendido
             </button>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function ModalBasedAlerts() {
           </div>
 
           <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
-            Information Alert!
+            ¡Alerta de Información!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
             Lorem ipsum dolor sit amet consectetur. Feugiat ipsum libero tempor
@@ -152,7 +152,7 @@ export default function ModalBasedAlerts() {
               type="button"
               className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-blue-light-500 shadow-theme-xs hover:bg-blue-light-600 sm:w-auto"
             >
-              Okay, Got It
+              Está Bien, Entendido
             </button>
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function ModalBasedAlerts() {
           </div>
 
           <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
-            Warning Alert!
+            ¡Alerta de Advertencia!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
             Lorem ipsum dolor sit amet consectetur. Feugiat ipsum libero tempor
@@ -212,7 +212,7 @@ export default function ModalBasedAlerts() {
               type="button"
               className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-warning-500 shadow-theme-xs hover:bg-warning-600 sm:w-auto"
             >
-              Okay, Got It
+              Está Bien, Entendido
             </button>
           </div>
         </div>
@@ -260,7 +260,7 @@ export default function ModalBasedAlerts() {
           </div>
 
           <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
-            Danger Alert!
+            ¡Alerta de Peligro!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
             Lorem ipsum dolor sit amet consectetur. Feugiat ipsum libero tempor
@@ -272,7 +272,7 @@ export default function ModalBasedAlerts() {
               type="button"
               className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-error-500 shadow-theme-xs hover:bg-error-600 sm:w-auto"
             >
-              Okay, Got It
+              Está Bien, Entendido
             </button>
           </div>
         </div>

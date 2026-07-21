@@ -1,8 +1,19 @@
+import type { Metadata } from "next";
 import { Outfit } from 'next/font/google';
 import './globals.css';
 import "flatpickr/dist/flatpickr.css";
 import { SidebarProvider } from '@/context/SidebarContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+
+export const metadata: Metadata = {
+  title: "UEB - Plantilla Institucional",
+  description: "Plantilla institucional de la Universidad Estatal de Bolivar",
+  openGraph: {
+    title: "UEB - Plantilla Institucional",
+    description: "Plantilla institucional de la Universidad Estatal de Bolivar",
+    images: "/images/logo/logo.png",
+  },
+};
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -14,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`${outfit.className} dark:bg-gray-900`}>
         <ThemeProvider>
           <SidebarProvider>{children}</SidebarProvider>

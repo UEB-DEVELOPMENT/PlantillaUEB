@@ -9,7 +9,7 @@ import DemographicCard from "@/components/ecommerce/DemographicCard";
 
 export const metadata: Metadata = {
   title: "Dashboard - UEB",
-  description: "Panel principal - Universidad Estatal de Bolivar",
+  description: "Panel principal - Universidad Estatal de Bolívar",
 };
 
 export default function Ecommerce() {

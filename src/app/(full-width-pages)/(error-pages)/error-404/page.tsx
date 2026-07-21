@@ -6,7 +6,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "404 - UEB",
-  description: "Página no encontrada - Universidad Estatal de Bolivar",
+  description: "Página no encontrada - Universidad Estatal de Bolívar",
 };
 
 export default function Error404() {
@@ -18,8 +18,8 @@ export default function Error404() {
           <Image
             src="/images/logo/UEB.png"
             alt="UEB"
-            width={200}
-            height={70}
+            width={500}
+            height={205}
             className="mx-auto brightness-0 invert"
           />
         </div>
@@ -40,7 +40,7 @@ export default function Error404() {
         </Link>
       </div>
       <p className="absolute text-sm text-center text-white/50 -translate-x-1/2 bottom-6 left-1/2">
-        Copyright &copy; {new Date().getFullYear()} Derechos Reservados Universidad Estatal de Bolivar - Direcci&oacute;n de TICs
+        Copyright &copy; {new Date().getFullYear()} Derechos Reservados Universidad Estatal de Bolívar - Direcci&oacute;n de TICs
       </p>
     </div>
   );

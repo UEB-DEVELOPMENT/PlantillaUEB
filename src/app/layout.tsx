@@ -7,10 +7,11 @@ import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata: Metadata = {
   title: "UEB - Plantilla Institucional",
-  description: "Plantilla institucional de la Universidad Estatal de Bolivar",
+  description: "Plantilla institucional de la Universidad Estatal de Bolívar",
+  icons: "/favicon.png",
   openGraph: {
     title: "UEB - Plantilla Institucional",
-    description: "Plantilla institucional de la Universidad Estatal de Bolivar",
+    description: "Plantilla institucional de la Universidad Estatal de Bolívar",
     images: "/images/logo/logo.png",
   },
 };

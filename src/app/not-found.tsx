@@ -34,7 +34,7 @@ export default function NotFound() {
         </Link>
       </div>
       <p className="absolute text-sm text-center text-white/50 -translate-x-1/2 bottom-6 left-1/2">
-        Copyright &copy; {new Date().getFullYear()} Derechos Reservados Universidad Estatal de Bolivar - Direcci&oacute;n de TICs
+        Copyright &copy; {new Date().getFullYear()} Derechos Reservados Universidad Estatal de Bolívar - Direcci&oacute;n de TICs
       </p>
     </div>
   );

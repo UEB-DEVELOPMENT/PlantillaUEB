@@ -1,6 +1,6 @@
 # UEB - Plantilla Institucional
 
-![Plantilla UEB](../Plantillaapi/plantilla.png)
+![Plantilla UEB](/plantilla.png)
 
 Plantilla institucional de la **Universidad Estatal de Bolívar** construida con Next.js y Tailwind CSS.
 

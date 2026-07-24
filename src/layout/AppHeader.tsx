@@ -14,6 +14,8 @@ const AppHeader: React.FC = () => {
   const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
 
   const handleToggle = () => {
+    window.dispatchEvent(new CustomEvent("close-header-dropdowns"));
+    setApplicationMenuOpen(false);
     if (window.innerWidth >= 1024) {
       toggleSidebar();
     } else {
@@ -22,6 +24,8 @@ const AppHeader: React.FC = () => {
   };
 
   const toggleApplicationMenu = () => {
+    window.dispatchEvent(new CustomEvent("close-header-dropdowns"));
+    if (isMobileOpen) toggleMobileSidebar();
     setApplicationMenuOpen(!isApplicationMenuOpen);
   };
   const inputRef = useRef<HTMLInputElement>(null);

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useSidebar } from "@/context/SidebarContext";
 
 declare global {
   interface Window {
@@ -25,6 +26,17 @@ function getCookieLang(): string {
 export default function GTranslate() {
   const [isOpen, setIsOpen] = useState(false);
   const [current, setCurrent] = useState("es");
+  const { isMobileOpen, toggleMobileSidebar } = useSidebar();
+
+  useEffect(() => {
+    if (isMobileOpen) setIsOpen(false);
+  }, [isMobileOpen]);
+
+  useEffect(() => {
+    const handler = () => setIsOpen(false);
+    window.addEventListener("close-header-dropdowns", handler);
+    return () => window.removeEventListener("close-header-dropdowns", handler);
+  }, []);
 
   useEffect(() => {
     setCurrent(getCookieLang());
@@ -59,7 +71,11 @@ export default function GTranslate() {
   return (
     <div className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          if (isMobileOpen) toggleMobileSidebar();
+          window.dispatchEvent(new CustomEvent("close-header-dropdowns"));
+          setIsOpen(!isOpen);
+        }}
         className="flex items-center justify-center text-white/70 transition-colors bg-brand-500 border border-brand-400 rounded-full h-11 w-11 hover:bg-brand-400 hover:text-white"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -74,7 +90,7 @@ export default function GTranslate() {
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-          <div className="absolute right-0 z-50 mt-2 w-40 rounded-lg border border-gray-200 bg-white p-2 shadow-theme-lg dark:border-gray-700 dark:bg-gray-800">
+          <div className="absolute left-0 z-50 mt-2 w-40 rounded-lg border border-gray-200 bg-white p-2 shadow-theme-lg dark:border-gray-700 dark:bg-gray-800 lg:left-auto lg:right-0">
             {languages.map((lang) => (
               <button
                 key={lang.code}

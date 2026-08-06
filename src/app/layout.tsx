@@ -4,6 +4,7 @@ import './globals.css';
 import "flatpickr/dist/flatpickr.css";
 import { SidebarProvider } from '@/context/SidebarContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+import TranslateNavGuard from '@/components/TranslateNavGuard';
 
 export const metadata: Metadata = {
   title: "UEB - Plantilla Institucional",
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${outfit.className} `}>
+        <TranslateNavGuard />
         <ThemeProvider>
           <SidebarProvider>{children}</SidebarProvider>
         </ThemeProvider>

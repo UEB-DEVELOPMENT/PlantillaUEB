@@ -5,6 +5,7 @@ import { useSidebar } from "@/context/SidebarContext";
 declare global {
   interface Window {
     gtranslateSettings: any;
+    doGTranslate?: (value: string) => void;
   }
 }
 
@@ -21,6 +22,25 @@ function getCookieLang(): string {
   const m = document.cookie.match(/(?:^|;\s*)googtrans=([^;]*)/);
   if (m) return m[1].split("/").pop() || "es";
   return "es";
+}
+
+function ensureGtElementLoaded(): void {
+  const w = window as unknown as { gt_translate_script?: HTMLScriptElement | null };
+  if (w.gt_translate_script) return;
+  const existing = document.getElementById("google_translate_element2");
+  if (existing && existing.innerHTML.length > 0) return;
+  const s = document.createElement("script");
+  s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2";
+  document.body.appendChild(s);
+  w.gt_translate_script = s;
+}
+
+function setGtCookie(code: string) {
+  const value =
+    code === "es"
+      ? "googtrans=/es/es; path=/; max-age=31536000; SameSite=Lax"
+      : `googtrans=/es/${code}; path=/; max-age=31536000; SameSite=Lax`;
+  document.cookie = value;
 }
 
 export default function GTranslate() {
@@ -60,14 +80,17 @@ export default function GTranslate() {
   }, []);
 
   const handleLanguage = (code: string) => {
-    if (code === "es") {
-      document.cookie = "googtrans=; path=/; max-age=0; SameSite=Lax";
+    const pair = code === "es" ? "es|es" : `es|${code}`;
+    setGtCookie(code);
+    setCurrent(code);
+    const w = window as unknown as { doGTranslate?: (pair: string) => void };
+    if (typeof w.doGTranslate === "function") {
+      ensureGtElementLoaded();
+      w.doGTranslate(pair);
     } else {
-      document.cookie = `googtrans=/es/${code}; path=/; max-age=31536000; SameSite=Lax`;
+      window.location.reload();
     }
-    window.location.reload();
   };
-
   return (
     <div className="relative">
       <button

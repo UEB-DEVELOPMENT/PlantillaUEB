@@ -20,7 +20,8 @@ function toggleDropdown(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
   e.stopPropagation();
   if (isMobileOpen) toggleMobileSidebar();
   window.dispatchEvent(new CustomEvent("close-header-dropdowns"));
-  setIsOpen((prev) => !prev);
+  setIsOpen(!isOpen);
+
 }
 
   function closeDropdown() {

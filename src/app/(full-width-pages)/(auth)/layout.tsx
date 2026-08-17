@@ -16,7 +16,7 @@ export default function AuthLayout({
       <ThemeProvider>
         <div className="relative flex lg:flex-row w-full h-screen justify-center flex-col  dark:bg-gray-900 sm:p-0">
           {children}
-          <div className="lg:w-1/2 w-full h-full bg-brand-500 dark:bg-white/5 lg:grid items-center hidden">
+          <div className="lg:w-1/2 w-full h-full bg-primary dark:bg-white/5 lg:grid items-center hidden">
             <div className="relative items-center justify-center  flex z-1">
               {/* <!-- ===== Common Grid Shape Start ===== --> */}
               <GridShape />
@@ -27,7 +27,7 @@ export default function AuthLayout({
                     height={100}
                     src="/images/logo/UEB.png"
                     alt="UEB"
-                    className="brightness-0 invert"
+
                   />
                 </Link>
               </div>

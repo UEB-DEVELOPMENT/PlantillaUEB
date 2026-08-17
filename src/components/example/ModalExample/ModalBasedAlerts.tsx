@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ComponentCard from "../../common/ComponentCard";
+import { Button } from "@ueb-development/ui/components/button";
 
 import { Modal } from "../../ui/modal";
 import { useModal } from "@/hooks/useModal";
@@ -13,30 +14,18 @@ export default function ModalBasedAlerts() {
   return (
     <ComponentCard title="Alertas Basadas en Modal">
       <div className="flex flex-wrap items-center gap-3">
-        <button
-          onClick={successModal.openModal}
-          className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-success-500 shadow-theme-xs hover:bg-success-600"
-        >
+        <Button variant="success" onClick={successModal.openModal}>
           Alerta de Éxito
-        </button>
-        <button
-          onClick={infoModal.openModal}
-          className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-blue-light-500 shadow-theme-xs hover:bg-blue-light-600"
-        >
+        </Button>
+        <Button variant="info" onClick={infoModal.openModal}>
           Alerta de Información
-        </button>
-        <button
-          onClick={warningModal.openModal}
-          className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-warning-500 shadow-theme-xs hover:bg-warning-600"
-        >
+        </Button>
+        <Button variant="warning" onClick={warningModal.openModal}>
           Alerta de Advertencia
-        </button>
-        <button
-          onClick={errorModal.openModal}
-          className="px-4 py-3 text-sm font-medium text-white rounded-lg bg-error-500 shadow-theme-xs hover:bg-error-600"
-        >
+        </Button>
+        <Button variant="destructive" onClick={errorModal.openModal}>
           Alerta de Peligro
-        </button>
+        </Button>
       </div>
       {/* Success Modal */}
       <Modal
@@ -47,7 +36,7 @@ export default function ModalBasedAlerts() {
         <div className="text-center">
           <div className="relative flex items-center justify-center z-1 mb-7">
             <svg
-              className="fill-success-50 dark:fill-success-500/15"
+              className="fill-success/10 dark:fill-success/15"
               width="90"
               height="90"
               viewBox="0 0 90 90"
@@ -63,7 +52,7 @@ export default function ModalBasedAlerts() {
 
             <span className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
               <svg
-                className="fill-success-600 dark:fill-success-500"
+                className="fill-success dark:fill-success"
                 width="38"
                 height="38"
                 viewBox="0 0 38 38"
@@ -79,7 +68,7 @@ export default function ModalBasedAlerts() {
               </svg>
             </span>
           </div>
-          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
+          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-3xl">
             ¡Bien Hecho!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
@@ -88,12 +77,14 @@ export default function ModalBasedAlerts() {
           </p>
 
           <div className="flex items-center justify-center w-full gap-3 mt-7">
-            <button
+            <Button
               type="button"
-              className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-success-500 shadow-theme-xs hover:bg-success-600 sm:w-auto"
+              variant="success"
+              className="w-full sm:w-auto"
+              onClick={successModal.closeModal}
             >
               Está Bien, Entendido
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -106,7 +97,7 @@ export default function ModalBasedAlerts() {
         <div className="text-center">
           <div className="relative flex items-center justify-center z-1 mb-7">
             <svg
-              className="fill-blue-light-50 dark:fill-blue-light-500/15"
+              className="fill-info/10 dark:fill-info/15"
               width="90"
               height="90"
               viewBox="0 0 90 90"
@@ -122,7 +113,7 @@ export default function ModalBasedAlerts() {
 
             <span className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
               <svg
-                className="fill-blue-light-500 dark:fill-blue-light-500"
+                className="fill-info dark:fill-info"
                 width="38"
                 height="38"
                 viewBox="0 0 38 38"
@@ -139,7 +130,7 @@ export default function ModalBasedAlerts() {
             </span>
           </div>
 
-          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
+          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-3xl">
             ¡Alerta de Información!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
@@ -148,12 +139,14 @@ export default function ModalBasedAlerts() {
           </p>
 
           <div className="flex items-center justify-center w-full gap-3 mt-7">
-            <button
+            <Button
               type="button"
-              className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-blue-light-500 shadow-theme-xs hover:bg-blue-light-600 sm:w-auto"
+              variant="info"
+              className="w-full sm:w-auto"
+              onClick={infoModal.closeModal}
             >
               Está Bien, Entendido
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -166,7 +159,7 @@ export default function ModalBasedAlerts() {
         <div className="text-center">
           <div className="relative flex items-center justify-center z-1 mb-7">
             <svg
-              className="fill-warning-50 dark:fill-warning-500/15"
+              className="fill-warning/10 dark:fill-warning/15"
               width="90"
               height="90"
               viewBox="0 0 90 90"
@@ -182,7 +175,7 @@ export default function ModalBasedAlerts() {
 
             <span className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
               <svg
-                className="fill-warning-600 dark:fill-orange-400"
+                className="fill-warning dark:fill-warning"
                 width="38"
                 height="38"
                 viewBox="0 0 38 38"
@@ -199,7 +192,7 @@ export default function ModalBasedAlerts() {
             </span>
           </div>
 
-          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
+          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-3xl">
             ¡Alerta de Advertencia!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
@@ -208,12 +201,14 @@ export default function ModalBasedAlerts() {
           </p>
 
           <div className="flex items-center justify-center w-full gap-3 mt-7">
-            <button
+            <Button
               type="button"
-              className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-warning-500 shadow-theme-xs hover:bg-warning-600 sm:w-auto"
+              variant="warning"
+              className="w-full sm:w-auto"
+              onClick={warningModal.closeModal}
             >
               Está Bien, Entendido
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>
@@ -226,7 +221,7 @@ export default function ModalBasedAlerts() {
         <div className="text-center">
           <div className="relative flex items-center justify-center z-1 mb-7">
             <svg
-              className="fill-error-50 dark:fill-error-500/15"
+              className="fill-destructive/10 dark:fill-destructive/15"
               width="90"
               height="90"
               viewBox="0 0 90 90"
@@ -242,7 +237,7 @@ export default function ModalBasedAlerts() {
 
             <span className="absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
               <svg
-                className="fill-error-600 dark:fill-error-500"
+                className="fill-destructive dark:fill-destructive"
                 width="38"
                 height="38"
                 viewBox="0 0 38 38"
@@ -259,7 +254,7 @@ export default function ModalBasedAlerts() {
             </span>
           </div>
 
-          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-title-sm">
+          <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90 sm:text-3xl">
             ¡Alerta de Peligro!
           </h4>
           <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
@@ -268,12 +263,14 @@ export default function ModalBasedAlerts() {
           </p>
 
           <div className="flex items-center justify-center w-full gap-3 mt-7">
-            <button
+            <Button
               type="button"
-              className="flex justify-center w-full px-4 py-3 text-sm font-medium text-white rounded-lg bg-error-500 shadow-theme-xs hover:bg-error-600 sm:w-auto"
+              variant="destructive"
+              className="w-full sm:w-auto"
+              onClick={errorModal.closeModal}
             >
               Está Bien, Entendido
-            </button>
+            </Button>
           </div>
         </div>
       </Modal>

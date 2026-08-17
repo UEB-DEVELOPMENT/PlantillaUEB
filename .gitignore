@@ -3,6 +3,9 @@
 # dependencies
 /.idea
 /node_modules
+
+# npm registry credentials (GitHub Packages token)
+.npmrc
 /.pnp
 .pnp.js
 .yarn/install-state.gz

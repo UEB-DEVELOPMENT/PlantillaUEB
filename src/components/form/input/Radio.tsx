@@ -1,4 +1,9 @@
+"use client";
 import React from "react";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@ueb-development/ui/components/radio-group";
 
 interface RadioProps {
   id: string; // Unique ID for the radio button
@@ -22,43 +27,24 @@ const Radio: React.FC<RadioProps> = ({
   disabled = false,
 }) => {
   return (
-    <label
-      htmlFor={id}
-      className={`relative flex cursor-pointer  select-none items-center gap-3 text-sm font-medium ${
-        disabled
-          ? "text-gray-300 dark:text-gray-600 cursor-not-allowed"
-          : "text-gray-700 dark:text-gray-400"
-      } ${className}`}
+    <RadioGroup
+      name={name}
+      value={checked ? value : undefined}
+      onValueChange={(next) => next === value && onChange(value)}
+      className={`flex items-center gap-3 ${className}`}
     >
-      <input
-        id={id}
-        name={name}
-        type="radio"
-        value={value}
-        checked={checked}
-        onChange={() => !disabled && onChange(value)} // Prevent onChange when disabled
-        className="sr-only"
-        disabled={disabled} // Disable input
-      />
-      <span
-        className={`flex h-5 w-5 items-center justify-center rounded-full border-[1.25px] ${
-          checked
-            ? "border-brand-500 bg-brand-500"
-            : "bg-transparent border-gray-300 dark:border-gray-700"
-        } ${
+      <label
+        htmlFor={id}
+        className={`flex cursor-pointer items-center gap-3 text-sm font-medium ${
           disabled
-            ? "bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-700"
-            : ""
+            ? "cursor-not-allowed text-muted-foreground"
+            : "text-foreground"
         }`}
       >
-        <span
-          className={`h-2 w-2 rounded-full bg-white ${
-            checked ? "block" : "hidden"
-          }`}
-        ></span>
-      </span>
-      {label}
-    </label>
+        <RadioGroupItem id={id} value={value} disabled={disabled} />
+        {label}
+      </label>
+    </RadioGroup>
   );
 };
 

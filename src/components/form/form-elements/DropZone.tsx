@@ -20,13 +20,13 @@ const DropzoneComponent: React.FC = () => {
   });
   return (
     <ComponentCard title="Zona de Arrastre">
-      <div className="transition border border-gray-300 border-dashed cursor-pointer dark:hover:border-brand-500 dark:border-gray-700 rounded-xl hover:border-brand-500">
+      <div className="transition border border-gray-300 border-dashed cursor-pointer dark:hover:border-primary dark:border-gray-700 rounded-xl hover:border-primary">
         <form
           {...getRootProps()}
           className={`dropzone rounded-xl   border-dashed border-gray-300 p-7 lg:p-10
         ${
           isDragActive
-            ? "border-brand-500 bg-gray-100 dark:bg-gray-800"
+            ? "border-primary bg-gray-100 dark:bg-gray-800"
             : "border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-900"
         }
       `}
@@ -56,7 +56,7 @@ const DropzoneComponent: React.FC = () => {
             </div>
 
             {/* Text Content */}
-            <h4 className="mb-3 font-semibold text-gray-800 text-theme-xl dark:text-white/90">
+            <h4 className="mb-3 font-semibold text-gray-800 text-xl dark:text-white/90">
               {isDragActive ? "Suelte los Archivos Aquí" : "Arrastre y Suelte los Archivos Aquí"}
             </h4>
 
@@ -64,7 +64,7 @@ const DropzoneComponent: React.FC = () => {
               Arrastre y suelte sus imágenes PNG, JPG, WebP, SVG aquí o explore
             </span>
 
-            <span className="font-medium underline text-theme-sm text-brand-500">
+            <span className="font-medium underline text-sm text-primary">
               Explorar Archivos
             </span>
           </div>

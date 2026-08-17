@@ -2,7 +2,7 @@
 import React from "react";
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../ui/modal";
-import Button from "../ui/button/Button";
+import { Button } from "@ueb-development/ui/components/button";
 import Input from "../form/input/InputField";
 import Label from "../form/Label";
 import Image from "next/image";
@@ -43,9 +43,16 @@ export default function UserMetaCard() {
               </div>
             </div>
             <div className="flex items-center order-2 gap-2 grow xl:order-3 xl:justify-end">
-              <a        
-        target="_blank"
-        rel="noreferrer" href='https://www.facebook.com' className="flex h-11 w-11 items-center justify-center gap-2 rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+              <Button
+                variant="outline"
+                size="icon-lg"
+                asChild
+              >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.facebook.com"
+                >
                 <svg
                   className="fill-current"
                   width="20"
@@ -59,10 +66,11 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-              </a>
+                </a>
+              </Button>
 
-              <a href='https://x.com' target="_blank"
-        rel="noreferrer"  className="flex h-11 w-11 items-center justify-center gap-2 rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+              <Button variant="outline" size="icon-lg" asChild>
+                <a href="https://x.com" target="_blank" rel="noreferrer">
                 <svg
                   className="fill-current"
                   width="20"
@@ -76,10 +84,15 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-              </a>
+                </a>
+              </Button>
 
-              <a href="https://www.linkedin.com/company/pimjo" target="_blank"
-        rel="noreferrer" className="flex h-11 w-11 items-center justify-center gap-2 rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+              <Button variant="outline" size="icon-lg" asChild>
+                <a
+                  href="https://www.linkedin.com/company/pimjo"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                 <svg
                   className="fill-current"
                   width="20"
@@ -93,10 +106,11 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-              </a>
+                </a>
+              </Button>
 
-              <a href='https://instagram.com' target="_blank"
-        rel="noreferrer" className="flex h-11 w-11 items-center justify-center gap-2 rounded-full border border-gray-300 bg-white text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+              <Button variant="outline" size="icon-lg" asChild>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer">
                 <svg
                   className="fill-current"
                   width="20"
@@ -110,12 +124,14 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-              </a>
+                </a>
+              </Button>
             </div>
           </div>
-          <button
+          <Button
+            variant="outline"
             onClick={openModal}
-            className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 lg:inline-flex lg:w-auto"
+            className="w-full lg:w-auto"
           >
             <svg
               className="fill-current"
@@ -133,7 +149,7 @@ export default function UserMetaCard() {
               />
             </svg>
             Editar
-          </button>
+          </Button>
         </div>
       </div>
       <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[700px] m-4">

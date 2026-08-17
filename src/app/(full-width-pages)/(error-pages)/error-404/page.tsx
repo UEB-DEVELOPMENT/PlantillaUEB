@@ -1,30 +1,24 @@
 import GridShape from "@/components/common/GridShape";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export const metadata: Metadata = {
-  title: "404 - UEB",
-  description: "Página no encontrada - Universidad Estatal de Bolívar",
-};
-
-export default function Error404() {
+export default function NotFound() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen p-6 overflow-hidden z-1 bg-brand-500">
+    <div className="relative flex flex-col items-center justify-center min-h-screen p-6 overflow-hidden z-1 bg-primary">
       <GridShape />
-      <div className="mx-auto w-full max-w-[242px] text-center sm:max-w-[472px]">
+      <div className="mx-auto w-full max-w-[400px] text-center sm:max-w-[600px]">
         <div className="mb-8">
           <Image
             src="/images/logo/UEB.png"
             alt="UEB"
-            width={500}
-            height={205}
-            className="mx-auto brightness-0 invert"
+            width={300}
+            height={100}
+            className="mx-auto h-auto w-full"
           />
         </div>
 
-        <h1 className="mb-4 font-bold text-error-500 text-title-md xl:text-title-2xl">
+        <h1 className="mb-4 font-bold text-white text-4xl xl:text-7xl">
           404
         </h1>
 
@@ -34,7 +28,7 @@ export default function Error404() {
 
         <Link
           href="/"
-          className="inline-flex items-center justify-center rounded-lg bg-error-500 px-5 py-3.5 text-sm font-medium text-white shadow-theme-xs hover:bg-error-600"
+          className="inline-flex items-center justify-center rounded-lg bg-destructive px-5 py-3.5 text-sm font-medium text-white shadow-xs hover:bg-destructive"
         >
           Volver al inicio
         </Link>

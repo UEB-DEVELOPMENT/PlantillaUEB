@@ -2,7 +2,11 @@
 
 import AppHeader from "@/layout/AppHeader";
 import AppSidebar from "@/layout/AppSidebar";
-import Backdrop from "@/layout/Backdrop";
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@ueb-development/ui/components/sidebar";
+import { TooltipProvider } from "@ueb-development/ui/components/tooltip";
 import React from "react";
 
 export default function AdminLayout({
@@ -11,17 +15,18 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col">
-      <AppHeader />
-      <div className="flex flex-1">
+    <SidebarProvider>
+      <TooltipProvider>
         <AppSidebar />
-        <Backdrop />
-        <div className="flex-1 min-w-0 bg-page-bg">
-          <div className="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
-            {children}
+        <SidebarInset>
+          <AppHeader />
+          <div className="flex min-w-0 flex-1 flex-col gap-4 p-4 md:p-6">
+            <div className="mx-auto w-full max-w-(--breakpoint-2xl)">
+              {children}
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </SidebarInset>
+      </TooltipProvider>
+    </SidebarProvider>
   );
 }

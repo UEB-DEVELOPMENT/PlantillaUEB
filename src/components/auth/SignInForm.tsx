@@ -24,7 +24,7 @@ export default function SignInForm() {
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
         <div>
           <div className="mb-5 sm:mb-8">
-              <h1 className="mb-2 font-semibold text-gray-800 text-title-sm dark:text-white/90 sm:text-title-md">
+              <h1 className="mb-2 font-semibold text-gray-800 text-3xl dark:text-white/90 sm:text-4xl">
                 Iniciar sesión
               </h1>
               <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -88,13 +88,13 @@ export default function SignInForm() {
               <div className="space-y-6">
                 <div>
                   <Label>
-                    Correo <span className="text-error-500">*</span>{" "}
+                    Correo <span className="text-destructive">*</span>{" "}
                   </Label>
                   <Input placeholder="info@gmail.com" type="email" />
                 </div>
                 <div>
                   <Label>
-                    Contraseña <span className="text-error-500">*</span>{" "}
+                    Contraseña <span className="text-destructive">*</span>{" "}
                   </Label>
                   <div className="relative">
                     <Input
@@ -116,13 +116,13 @@ export default function SignInForm() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Checkbox checked={isChecked} onChange={setIsChecked} />
-                    <span className="block font-normal text-gray-700 text-theme-sm dark:text-gray-400">
+                    <span className="block font-normal text-gray-700 text-sm dark:text-gray-400">
                       Mantener sesión iniciada
                     </span>
                   </div>
                   <Link
                     href="/reset-password"
-                    className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                    className="text-sm text-primary hover:text-primary/80 dark:text-primary"
                   >
                     ¿Olvidaste tu contraseña?
                   </Link>
@@ -140,7 +140,7 @@ export default function SignInForm() {
                 ¿No tienes una cuenta? {""}
                 <Link
                   href="/signup"
-                  className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                  className="text-primary hover:text-primary/80 dark:text-primary"
                 >
                   Registrarse
                 </Link>

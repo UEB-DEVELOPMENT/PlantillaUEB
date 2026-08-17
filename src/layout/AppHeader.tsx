@@ -3,31 +3,14 @@
 import NotificationDropdown from "@/components/header/NotificationDropdown";
 import UserDropdown from "@/components/header/UserDropdown";
 import GTranslate from "@/components/header/GTranslate";
-import { useSidebar } from "@/context/SidebarContext";
-import Image from "next/image";
-import Link from "next/link";
+import { Button } from "@ueb-development/ui/components/button";
+import { Input } from "@ueb-development/ui/components/input";
+import { Kbd } from "@ueb-development/ui/components/kbd";
+import { SidebarTrigger } from "@ueb-development/ui/components/sidebar";
 import React, { useState, useEffect, useRef } from "react";
 
 const AppHeader: React.FC = () => {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
-
-  const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
-
-  const handleToggle = () => {
-    window.dispatchEvent(new CustomEvent("close-header-dropdowns"));
-    setApplicationMenuOpen(false);
-    if (window.innerWidth >= 1024) {
-      toggleSidebar();
-    } else {
-      toggleMobileSidebar();
-    }
-  };
-
-  const toggleApplicationMenu = () => {
-    window.dispatchEvent(new CustomEvent("close-header-dropdowns"));
-    if (isMobileOpen) toggleMobileSidebar();
-    setApplicationMenuOpen(!isApplicationMenuOpen);
-  };
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -45,44 +28,69 @@ const AppHeader: React.FC = () => {
     };
   }, []);
 
+  const toggleApplicationMenu = () => {
+    window.dispatchEvent(new CustomEvent("close-header-dropdowns"));
+    setApplicationMenuOpen(!isApplicationMenuOpen);
+  };
+
   return (
-    <header className="sticky top-0 flex w-full bg-brand-500 border-brand-600 z-99999 lg:border-b">
-      <div className="flex flex-col items-center justify-between grow lg:flex-row lg:px-6 border-b-2 border-error-500">
+    <header className="sticky top-0 z-50 flex w-full items-center gap-3 border-b bg-primary px-4 py-3 sm:px-6">
+      <div className="flex flex-1 items-center gap-2 lg:gap-4">
+        <SidebarTrigger className="text-primary-foreground" />
 
-        <div className="flex items-center justify-between w-full gap-2 px-3 py-3 border-b border-brand-600 sm:gap-4 lg:w-auto lg:justify-start lg:border-b-0 lg:px-0 lg:py-4">
-          <button
-            className="flex items-center justify-center w-10 h-10 text-white border-brand-400 rounded-lg lg:hidden hover:bg-brand-400"
-            onClick={handleToggle}
-            aria-label="Alternar Barra Lateral"
-          >
-            {isMobileOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M6.21967 7.28131C5.92678 6.98841 5.92678 6.51354 6.21967 6.22065C6.51256 5.92775 6.98744 5.92775 7.28033 6.22065L11.999 10.9393L16.7176 6.22078C17.0105 5.92789 17.4854 5.92788 17.7782 6.22078C18.0711 6.51367 18.0711 6.98855 17.7782 7.28144L13.0597 12L17.7782 16.7186C18.0711 17.0115 18.0711 17.4863 17.7782 17.7792C17.4854 18.0721 17.0105 18.0721 16.7176 17.7792L11.999 13.0607L7.28033 17.7794C6.98744 18.0722 6.51256 18.0722 6.21967 17.7794C5.92678 17.4865 5.92678 17.0116 6.21967 16.7187L10.9384 12L6.21967 7.28131Z" fill="currentColor" />
+        <div className="hidden flex-1 justify-center lg:flex">
+          <form className="w-full max-w-md xl:max-w-[430px]">
+            <div className="relative">
+              <Input
+                ref={inputRef}
+                type="text"
+                placeholder="Buscar o escribir comando..."
+                className="h-10 rounded-4xl border-white/20 bg-white/10 pl-10 text-primary-foreground placeholder:text-primary-foreground/60 focus-visible:border-white/40"
+              />
+              <svg
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-primary-foreground/70"
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M3.04175 9.37363C3.04175 5.87693 5.87711 3.04199 9.37508 3.04199C12.8731 3.04199 15.7084 5.87693 15.7084 9.37363C15.7084 12.8703 12.8731 15.7053 9.37508 15.7053C5.87711 15.7053 3.04175 12.8703 3.04175 9.37363ZM9.37508 1.54199C5.04902 1.54199 1.54175 5.04817 1.54175 9.37363C1.54175 13.6991 5.04902 17.2053 9.37508 17.2053C11.2674 17.2053 13.003 16.5344 14.357 15.4176L17.177 18.238C17.4699 18.5309 17.9448 18.5309 18.2377 18.238C18.5306 17.9451 18.5306 17.4703 18.2377 17.1774L15.418 14.3573C16.5365 13.0033 17.2084 11.2669 17.2084 9.37363C17.2084 5.04817 13.7011 1.54199 9.37508 1.54199Z"
+                  fill="currentColor"
+                />
               </svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm1 5a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z" fill="currentColor" />
-              </svg>
-            )}
-          </button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="absolute right-1.5 top-1/2 h-7 -translate-y-1/2 rounded-full px-2 text-primary-foreground/80 hover:bg-white/10 hover:text-primary-foreground"
+              >
+                <Kbd className="bg-white/10 text-primary-foreground/80">⌘ K</Kbd>
+              </Button>
+            </div>
+          </form>
+        </div>
 
-          <Link href="/">
-            <Image
-              width={220}
-              height={60}
-              src="/images/logo/UEB.png"
-              alt="UEB"
-              className="brightness-0 invert"
-            />
-          </Link>
+        <div className="ml-auto flex items-center gap-2 lg:ml-0 2xsm:gap-3">
+          <GTranslate />
 
-          <button
+          <NotificationDropdown />
+
+          <UserDropdown />
+
+          <Button
             onClick={toggleApplicationMenu}
-            className="flex items-center justify-center w-10 h-10 text-white rounded-lg hover:bg-brand-400 lg:hidden"
+            variant="ghost"
+            size="icon-sm"
+            aria-label="Menú de aplicación"
+            className="text-primary-foreground hover:bg-white/10 lg:hidden"
           >
             <svg
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -94,57 +102,38 @@ const AppHeader: React.FC = () => {
                 fill="currentColor"
               />
             </svg>
-          </button>
-        </div>
-
-        <div className="hidden lg:flex flex-1 justify-center">
-          <form className="w-full max-w-md xl:max-w-[430px]">
-            <div className="relative">
-              <span className="absolute -translate-y-1/2 left-4 top-1/2 pointer-events-none">
-                <svg
-                  className="fill-white/70"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M3.04175 9.37363C3.04175 5.87693 5.87711 3.04199 9.37508 3.04199C12.8731 3.04199 15.7084 5.87693 15.7084 9.37363C15.7084 12.8703 12.8731 15.7053 9.37508 15.7053C5.87711 15.7053 3.04175 12.8703 3.04175 9.37363ZM9.37508 1.54199C5.04902 1.54199 1.54175 5.04817 1.54175 9.37363C1.54175 13.6991 5.04902 17.2053 9.37508 17.2053C11.2674 17.2053 13.003 16.5344 14.357 15.4176L17.177 18.238C17.4699 18.5309 17.9448 18.5309 18.2377 18.238C18.5306 17.9451 18.5306 17.4703 18.2377 17.1774L15.418 14.3573C16.5365 13.0033 17.2084 11.2669 17.2084 9.37363C17.2084 5.04817 13.7011 1.54199 9.37508 1.54199Z"
-                    fill=""
-                  />
-                </svg>
-              </span>
-              <input
-                ref={inputRef}
-                type="text"
-                placeholder="Buscar o escribir comando..."
-                className="h-11 w-full rounded-lg border border-brand-400 bg-brand-600 py-2.5 pl-12 pr-14 text-sm text-white shadow-theme-xs placeholder:text-white/50 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-white/10"
-              />
-
-              <button className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-brand-400 bg-brand-600 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-white/70">
-                <span> ⌘ </span>
-                <span> K </span>
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <div
-          className={`${
-            isApplicationMenuOpen ? "flex" : "hidden"
-          } items-center justify-between w-full gap-4 px-5 py-4 lg:flex lg:w-auto lg:justify-end lg:px-0 lg:shadow-none`}
-        >
-          <div className="flex items-center gap-2 2xsm:gap-3">
-            <GTranslate />
-
-            <NotificationDropdown />
-          </div>
-          <UserDropdown />
+          </Button>
         </div>
       </div>
+
+      {isApplicationMenuOpen && (
+        <div className="absolute inset-x-0 top-full z-50 flex flex-col items-center gap-3 border-t border-white/10 bg-primary p-4 lg:hidden">
+          <div className="w-full max-w-md">
+            <div className="relative">
+              <Input
+                type="text"
+                placeholder="Buscar o escribir comando..."
+                className="h-10 rounded-4xl border-white/20 bg-white/10 pl-10 text-primary-foreground placeholder:text-primary-foreground/60"
+              />
+              <svg
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-primary-foreground/70"
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M3.04175 9.37363C3.04175 5.87693 5.87711 3.04199 9.37508 3.04199C12.8731 3.04199 15.7084 5.87693 15.7084 9.37363C15.7084 12.8703 12.8731 15.7053 9.37508 15.7053C5.87711 15.7053 3.04175 12.8703 3.04175 9.37363ZM9.37508 1.54199C5.04902 1.54199 1.54175 5.04817 1.54175 9.37363C1.54175 13.6991 5.04902 17.2053 9.37508 17.2053C11.2674 17.2053 13.003 16.5344 14.357 15.4176L17.177 18.238C17.4699 18.5309 17.9448 18.5309 18.2377 18.238C18.5306 17.9451 18.5306 17.4703 18.2377 17.1774L15.418 14.3573C16.5365 13.0033 17.2084 11.2669 17.2084 9.37363C17.2084 5.04817 13.7011 1.54199 9.37508 1.54199Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

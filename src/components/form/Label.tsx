@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+import { Label as UebLabel } from "@ueb-development/ui/components/label";
 import { twMerge } from "tailwind-merge";
 
 interface LabelProps {
@@ -9,18 +10,12 @@ interface LabelProps {
 
 const Label: FC<LabelProps> = ({ htmlFor, children, className }) => {
   return (
-    <label
+    <UebLabel
       htmlFor={htmlFor}
-      className={twMerge(
-        // Default classes that apply by default
-        "mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400",
-
-        // User-defined className that can override the default margin
-        className
-      )}
+      className={twMerge("mb-1.5 block text-foreground", className)}
     >
       {children}
-    </label>
+    </UebLabel>
   );
 };
 

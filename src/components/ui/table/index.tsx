@@ -1,4 +1,12 @@
 import React, { ReactNode } from "react";
+import {
+  Table as UebTable,
+  TableHeader as UebTableHeader,
+  TableBody as UebTableBody,
+  TableRow as UebTableRow,
+  TableHead as UebTableHead,
+  TableCell as UebTableCell,
+} from "@ueb-development/ui/components/table";
 
 // Props for Table
 interface TableProps {
@@ -33,22 +41,22 @@ interface TableCellProps {
 
 // Table Component
 const Table: React.FC<TableProps> = ({ children, className }) => {
-  return <table className={`min-w-full  ${className}`}>{children}</table>;
+  return <UebTable className={className}>{children}</UebTable>;
 };
 
 // TableHeader Component
 const TableHeader: React.FC<TableHeaderProps> = ({ children, className }) => {
-  return <thead className={className}>{children}</thead>;
+  return <UebTableHeader className={className}>{children}</UebTableHeader>;
 };
 
 // TableBody Component
 const TableBody: React.FC<TableBodyProps> = ({ children, className }) => {
-  return <tbody className={className}>{children}</tbody>;
+  return <UebTableBody className={className}>{children}</UebTableBody>;
 };
 
 // TableRow Component
 const TableRow: React.FC<TableRowProps> = ({ children, className }) => {
-  return <tr className={className}>{children}</tr>;
+  return <UebTableRow className={className}>{children}</UebTableRow>;
 };
 
 // TableCell Component
@@ -57,8 +65,10 @@ const TableCell: React.FC<TableCellProps> = ({
   isHeader = false,
   className,
 }) => {
-  const CellTag = isHeader ? "th" : "td";
-  return <CellTag className={` ${className}`}>{children}</CellTag>;
+  if (isHeader) {
+    return <UebTableHead className={className}>{children}</UebTableHead>;
+  }
+  return <UebTableCell className={className}>{children}</UebTableCell>;
 };
 
 export { Table, TableHeader, TableBody, TableRow, TableCell };

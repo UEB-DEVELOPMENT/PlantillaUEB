@@ -2,6 +2,7 @@
 import Checkbox from "@/components/form/input/Checkbox";
 import Input from "@/components/form/input/InputField";
 import Label from "@/components/form/Label";
+import { Button } from "@ueb-development/ui/components/button";
 import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/icons";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -23,7 +24,7 @@ export default function SignUpForm() {
       <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
         <div>
           <div className="mb-5 sm:mb-8">
-              <h1 className="mb-2 font-semibold text-gray-800 text-title-sm dark:text-white/90 sm:text-title-md">
+              <h1 className="mb-2 font-semibold text-gray-800 text-3xl dark:text-white/90 sm:text-4xl">
                 Registro
               </h1>
               <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -89,7 +90,7 @@ export default function SignUpForm() {
                   {/* <!-- First Name --> */}
                   <div className="sm:col-span-1">
                     <Label>
-                      Nombre<span className="text-error-500">*</span>
+                      Nombre<span className="text-destructive">*</span>
                     </Label>
                     <Input
                       type="text"
@@ -101,7 +102,7 @@ export default function SignUpForm() {
                   {/* <!-- Last Name --> */}
                   <div className="sm:col-span-1">
                     <Label>
-                      Apellido<span className="text-error-500">*</span>
+                      Apellido<span className="text-destructive">*</span>
                     </Label>
                     <Input
                       type="text"
@@ -114,7 +115,7 @@ export default function SignUpForm() {
                 {/* <!-- Email --> */}
                 <div>
                   <Label>
-                    Correo<span className="text-error-500">*</span>
+                    Correo<span className="text-destructive">*</span>
                   </Label>
                   <Input
                     type="email"
@@ -126,7 +127,7 @@ export default function SignUpForm() {
                 {/* <!-- Password --> */}
                 <div>
                   <Label>
-                    Contraseña<span className="text-error-500">*</span>
+                    Contraseña<span className="text-destructive">*</span>
                   </Label>
                   <div className="relative">
                     <Input
@@ -161,9 +162,9 @@ export default function SignUpForm() {
                 </div>
                 {/* <!-- Button --> */}
                 <div>
-                  <button className="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
+                  <Button className="w-full" size="sm">
                     Registrarse
-                  </button>
+                  </Button>
                 </div>
               </div>
             </form>
@@ -173,7 +174,7 @@ export default function SignUpForm() {
                 ¿Ya tienes una cuenta?
                 <Link
                   href="/signin"
-                  className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                  className="text-primary hover:text-primary/80 dark:text-primary"
                 >
                   Iniciar sesión
                 </Link>

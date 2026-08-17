@@ -46,7 +46,7 @@ export default function StatisticsChart() {
     },
     colors: ["#465FFF", "#9CB9FF"], // Define line colors
     chart: {
-      fontFamily: "Outfit, sans-serif",
+      fontFamily: "Public Sans, sans-serif",
       height: 310,
       type: "line", // Set the chart type to 'line'
       toolbar: {
@@ -153,7 +153,7 @@ export default function StatisticsChart() {
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
             Estadísticas
           </h3>
-          <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
+          <p className="mt-1 text-gray-500 text-sm dark:text-gray-400">
             Meta establecida para cada mes
           </p>
         </div>

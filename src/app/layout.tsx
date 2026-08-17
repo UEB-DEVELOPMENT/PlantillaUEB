@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Outfit } from 'next/font/google';
+import { Public_Sans } from 'next/font/google';
 import './globals.css';
 import "flatpickr/dist/flatpickr.css";
-import { SidebarProvider } from '@/context/SidebarContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import TranslateNavGuard from '@/components/TranslateNavGuard';
 
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const outfit = Outfit({
+const publicSans = Public_Sans({
   subsets: ["latin"],
 });
 
@@ -28,11 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${outfit.className} `}>
+      <body className={`${publicSans.className} `}>
         <TranslateNavGuard />
-        <ThemeProvider>
-          <SidebarProvider>{children}</SidebarProvider>
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

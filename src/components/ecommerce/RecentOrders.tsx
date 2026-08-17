@@ -5,6 +5,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { Button } from "@ueb-development/ui/components/button";
 import Badge from "../ui/badge/Badge";
 import Image from "next/image";
 
@@ -80,7 +81,7 @@ export default function RecentOrders() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
+          <Button variant="outline">
             <svg
               className="stroke-current fill-white dark:fill-gray-800"
               width="20"
@@ -117,10 +118,8 @@ export default function RecentOrders() {
               />
             </svg>
             Filtrar
-          </button>
-          <button className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-            Ver todas
-          </button>
+          </Button>
+          <Button variant="outline">Ver todas</Button>
         </div>
       </div>
       <div className="max-w-full overflow-x-auto">
@@ -130,25 +129,25 @@ export default function RecentOrders() {
             <TableRow>
               <TableCell
                 isHeader
-                className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
+                className="py-3 font-medium text-gray-500 text-start text-xs dark:text-gray-400"
               >
                 Productos
               </TableCell>
               <TableCell
                 isHeader
-                className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
+                className="py-3 font-medium text-gray-500 text-start text-xs dark:text-gray-400"
               >
                 Categoría
               </TableCell>
               <TableCell
                 isHeader
-                className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
+                className="py-3 font-medium text-gray-500 text-start text-xs dark:text-gray-400"
               >
                 Precio
               </TableCell>
               <TableCell
                 isHeader
-                className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
+                className="py-3 font-medium text-gray-500 text-start text-xs dark:text-gray-400"
               >
                 Estado
               </TableCell>
@@ -172,22 +171,22 @@ export default function RecentOrders() {
                       />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-800 text-theme-sm dark:text-white/90">
+                      <p className="font-medium text-gray-800 text-sm dark:text-white/90">
                         {product.name}
                       </p>
-                      <span className="text-gray-500 text-theme-xs dark:text-gray-400">
+                      <span className="text-gray-500 text-xs dark:text-gray-400">
                         {product.variants}
                       </span>
                     </div>
                   </div>
                 </TableCell>
-                <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
+                <TableCell className="py-3 text-gray-500 text-sm dark:text-gray-400">
                   {product.price}
                 </TableCell>
-                <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
+                <TableCell className="py-3 text-gray-500 text-sm dark:text-gray-400">
                   {product.category}
                 </TableCell>
-                <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
+                <TableCell className="py-3 text-gray-500 text-sm dark:text-gray-400">
                   <Badge
                     size="sm"
                     color={

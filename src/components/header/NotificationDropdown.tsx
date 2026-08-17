@@ -89,7 +89,7 @@ export default function NotificationDropdown() {
 
       <DropdownMenuContent
         align="end"
-        className="w-[min(92vw,361px)] p-2"
+        className="w-[min(92vw,361px)] bg-popover p-2"
       >
         <DropdownMenuLabel className="flex items-center justify-between border-b border-border pb-3">
           <span className="text-lg font-semibold text-foreground">

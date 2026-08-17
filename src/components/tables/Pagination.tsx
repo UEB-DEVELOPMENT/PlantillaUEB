@@ -19,32 +19,32 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className="flex items-center ">
       <Button
-        variant="outline"
+        variant="ghost"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="mr-2.5 h-10"
+        className="mr-2 h-8 text-xs"
       >
         Anterior
       </Button>
-      <div className="flex items-center gap-2">
-        {currentPage > 3 && <span className="px-2">...</span>}
+      <div className="flex items-center gap-1">
+        {currentPage > 3 && <span className="px-1.5 text-xs">...</span>}
         {pagesAroundCurrent.map((page) => (
           <Button
             key={page}
             variant={currentPage === page ? "default" : "ghost"}
             onClick={() => onPageChange(page)}
-            className="h-10 w-10 px-0"
+            className="h-8 w-8 rounded-lg px-0 text-xs"
           >
             {page}
           </Button>
         ))}
-        {currentPage < totalPages - 2 && <span className="px-2">...</span>}
+        {currentPage < totalPages - 2 && <span className="px-1.5 text-xs">...</span>}
       </div>
       <Button
-        variant="outline"
+        variant="ghost"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="ml-2.5 h-10"
+        className="ml-2 h-8 text-xs"
       >
         Siguiente
       </Button>

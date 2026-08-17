@@ -85,19 +85,19 @@ export default function UserAddressCard() {
           </Button>
         </div>
       </div>
-      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[700px] m-4">
-        <div className="relative w-full p-4 overflow-y-auto bg-white no-scrollbar rounded-3xl dark:bg-gray-900 lg:p-11">
+      <Modal isOpen={isOpen} onClose={closeModal} className="sm:max-w-[700px]! m-4">
+        <div className="relative w-full">
           <div className="px-2 pr-14">
             <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
               Editar Dirección
             </h4>
-            <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+            <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
               Actualiza tus datos para mantener tu perfil al día.
             </p>
           </div>
           <form className="flex flex-col">
-            <div className="px-2 overflow-y-auto custom-scrollbar">
-              <div className="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
+            <div className="px-2">
+              <div className="grid grid-cols-1 gap-x-5 gap-y-4 lg:grid-cols-2">
                 <div>
                   <Label>País</Label>
                   <Input type="text" defaultValue="Ecuador" />
@@ -119,7 +119,7 @@ export default function UserAddressCard() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-3 px-2 mt-6 lg:justify-end">
+            <div className="flex items-center gap-3 px-2 mt-5 lg:justify-end">
               <Button size="sm" variant="outline" onClick={closeModal}>
                 Cerrar
               </Button>

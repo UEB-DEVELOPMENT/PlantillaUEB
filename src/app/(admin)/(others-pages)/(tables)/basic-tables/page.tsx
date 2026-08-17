@@ -1,6 +1,6 @@
 import ComponentCard from "@/components/common/ComponentCard";
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
-import BasicTableOne from "@/components/tables/BasicTableOne";
+import BasicTableDataTable from "@/components/tables/BasicTableDataTable";
 import { Metadata } from "next";
 import React from "react";
 
@@ -16,8 +16,8 @@ export default function BasicTables() {
     <div>
       <PageBreadcrumb pageTitle="Tabla Básica" />
       <div className="space-y-6">
-        <ComponentCard title="Tabla Básica 1">
-          <BasicTableOne />
+        <ComponentCard title="Tabla Básica">
+          <BasicTableDataTable />
         </ComponentCard>
       </div>
     </div>

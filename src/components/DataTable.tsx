@@ -16,22 +16,23 @@ import {
 import { useState } from "react";
 import { Settings, Download } from "lucide-react";
 import Pagination from "@/components/tables/Pagination";
-import { Checkbox } from "@ueb-development/ui/components/checkbox";
+import { Checkbox } from "@ueb-development/ui-core/components/checkbox";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@ueb-development/ui/components/select";
+} from "@ueb-development/ui-core/components/select";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuCheckboxItem,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from "@ueb-development/ui/components/dropdown-menu";
+} from "@ueb-development/ui-core/components/dropdown-menu";
 
 interface DataTableProps<T> {
   data: T[];
@@ -115,7 +116,8 @@ export default function DataTable<T>({
     id: "select",
     header: ({ table }) => (
       <Checkbox
-        checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
+        checked={table.getIsAllPageRowsSelected()}
+        indeterminate={!table.getIsAllPageRowsSelected() && table.getIsSomePageRowsSelected()}
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
       />
@@ -227,28 +229,28 @@ export default function DataTable<T>({
 
           {enableColumnVisibility && (
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium border border-border rounded-lg hover:bg-muted dark:border-border dark:hover:bg-secondary">
-                  <Settings className="size-4" />
-                  Columnas
-                </button>
+              <DropdownMenuTrigger className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium border border-border rounded-lg hover:bg-muted dark:border-border dark:hover:bg-secondary">
+                <Settings className="size-4" />
+                Columnas
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuLabel>Visibilidad</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                {table.getAllLeafColumns().filter((c) => c.id !== "select" && c.getCanHide()).map((col) => {
-                  const h = col.columnDef.header;
-                  const label = typeof h === "string" ? h : col.id;
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={col.id}
-                      checked={col.getIsVisible()}
-                      onCheckedChange={(value) => col.toggleVisibility(!!value)}
-                    >
-                      {label}
-                    </DropdownMenuCheckboxItem>
-                  );
-                })}
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>Visibilidad</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {table.getAllLeafColumns().filter((c) => c.id !== "select" && c.getCanHide()).map((col) => {
+                    const h = col.columnDef.header;
+                    const label = typeof h === "string" ? h : col.id;
+                    return (
+                      <DropdownMenuCheckboxItem
+                        key={col.id}
+                        checked={col.getIsVisible()}
+                        onCheckedChange={(value) => col.toggleVisibility(!!value)}
+                      >
+                        {label}
+                      </DropdownMenuCheckboxItem>
+                    );
+                  })}
+                </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
           )}

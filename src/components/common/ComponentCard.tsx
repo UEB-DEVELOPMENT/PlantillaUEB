@@ -5,7 +5,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@ueb-development/ui/components/card";
+} from "@ueb-development/ui-core/components/card";
 
 interface ComponentCardProps {
   title: string;

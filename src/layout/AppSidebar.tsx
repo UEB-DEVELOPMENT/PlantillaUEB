@@ -7,7 +7,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@ueb-development/ui/components/collapsible";
+} from "@ueb-development/ui-core/components/collapsible";
 import {
   Sidebar,
   SidebarContent,
@@ -23,7 +23,8 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
-} from "@ueb-development/ui/components/sidebar";
+  SidebarSeparator,
+} from "@ueb-development/ui-core/components/sidebar";
 import {
   Boxes,
   CalendarDays,
@@ -32,7 +33,9 @@ import {
   ClipboardList,
   FileText,
   LayoutDashboard,
+  LifeBuoy,
   LogIn,
+  LogOut,
   Table2,
   UserCircle,
 } from "lucide-react";
@@ -123,46 +126,42 @@ const AppSidebar: React.FC = () => {
         nav.subItems ? (
           <Collapsible
             key={nav.name}
-            asChild
+            render={<SidebarMenuItem />}
             defaultOpen={nav.subItems.some((s) => isActive(s.path))}
             className="group/collapsible"
           >
-            <SidebarMenuItem>
-              <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={nav.name}>
-                  {nav.icon}
-                  <span>{nav.name}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                </SidebarMenuButton>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <SidebarMenuSub>
-                  {nav.subItems.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.name}>
-                      <SidebarMenuSubButton
-                        asChild
-                        isActive={isActive(subItem.path)}
-                      >
-                        <Link href={subItem.path}>{subItem.name}</Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  ))}
-                </SidebarMenuSub>
-              </CollapsibleContent>
-            </SidebarMenuItem>
+            <CollapsibleTrigger
+              render={<SidebarMenuButton tooltip={nav.name} />}
+            >
+              {nav.icon}
+              <span>{nav.name}</span>
+              <ChevronRight className="ml-auto transition-transform duration-200 group-data-open/collapsible:rotate-90" />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <SidebarMenuSub>
+                {nav.subItems.map((subItem) => (
+                  <SidebarMenuSubItem key={subItem.name}>
+                    <SidebarMenuSubButton
+                      render={<Link href={subItem.path} />}
+                      isActive={isActive(subItem.path)}
+                    >
+                      <span>{subItem.name}</span>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                ))}
+              </SidebarMenuSub>
+            </CollapsibleContent>
           </Collapsible>
         ) : (
           nav.path && (
             <SidebarMenuItem key={nav.name}>
               <SidebarMenuButton
-                asChild
+                render={<Link href={nav.path} />}
                 isActive={isActive(nav.path)}
                 tooltip={nav.name}
               >
-                <Link href={nav.path}>
-                  {nav.icon}
-                  <span>{nav.name}</span>
-                </Link>
+                {nav.icon}
+                <span>{nav.name}</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           )
@@ -173,24 +172,39 @@ const AppSidebar: React.FC = () => {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader>
-        <Link
-          href="/"
-          className="flex justify-center px-3 py-2 group-data-[collapsible=icon]:hidden"
-        >
-          <Image
-            width={220}
-            height={60}
-            src="/images/logo/UEB.png"
-            alt="UEB"
-          />
-        </Link>
+      <SidebarHeader className="justify-center">
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              size="lg"
+              render={<Link href="/" />}
+              tooltip="Universidad Estatal de Bolívar"
+            >
+              <div className="flex aspect-square size-8 shrink-0 items-center justify-center rounded-lg bg-white p-0.5">
+                <Image
+                  width={32}
+                  height={32}
+                  src="/images/logo/logo.png"
+                  alt="UEB"
+                  className="size-full object-contain"
+                />
+              </div>
+              <div className="grid flex-1 text-left leading-tight">
+                <span className="truncate font-semibold">UEB</span>
+                <span className="truncate text-xs">
+                  Universidad Estatal de Bolívar
+                </span>
+              </div>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Menú</SidebarGroupLabel>
           <SidebarGroupContent>{renderMenuItems(navItems)}</SidebarGroupContent>
         </SidebarGroup>
+        <SidebarSeparator />
         <SidebarGroup>
           <SidebarGroupLabel>Otros</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -198,13 +212,29 @@ const AppSidebar: React.FC = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="pointer-events-none overflow-hidden p-0">
-        <img
-          src="/images/shape/grid-01.svg"
-          alt=""
-          aria-hidden
-          className="h-52 w-full -scale-y-100 object-cover"
-        />
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              size="sm"
+              render={<Link href="/profile" />}
+              tooltip="Soporte"
+            >
+              <LifeBuoy />
+              <span>Soporte</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              size="sm"
+              render={<Link href="/signin" />}
+              tooltip="Cerrar sesión"
+            >
+              <LogOut />
+              <span>Cerrar sesión</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

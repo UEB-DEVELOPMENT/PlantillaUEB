@@ -4,7 +4,7 @@ import {
   Alert as UebAlert,
   AlertTitle,
   AlertDescription,
-} from "@ueb-development/ui/components/alert";
+} from "@ueb-development/ui-core/components/alert";
 import {
   CircleCheckBig,
   CircleX,

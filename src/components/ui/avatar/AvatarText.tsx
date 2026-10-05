@@ -2,7 +2,7 @@ import React from "react";
 import {
   Avatar as UebAvatar,
   AvatarFallback,
-} from "@ueb-development/ui/components/avatar";
+} from "@ueb-development/ui-core/components/avatar";
 
 interface AvatarTextProps {
   name: string;

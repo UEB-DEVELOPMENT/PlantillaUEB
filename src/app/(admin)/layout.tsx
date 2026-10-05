@@ -5,8 +5,8 @@ import AppSidebar from "@/layout/AppSidebar";
 import {
   SidebarInset,
   SidebarProvider,
-} from "@ueb-development/ui/components/sidebar";
-import { TooltipProvider } from "@ueb-development/ui/components/tooltip";
+} from "@ueb-development/ui-core/components/sidebar";
+import { TooltipProvider } from "@ueb-development/ui-core/components/tooltip";
 import React from "react";
 
 export default function AdminLayout({

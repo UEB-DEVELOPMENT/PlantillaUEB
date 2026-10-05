@@ -6,7 +6,7 @@ import {
   TableRow as UebTableRow,
   TableHead as UebTableHead,
   TableCell as UebTableCell,
-} from "@ueb-development/ui/components/table";
+} from "@ueb-development/ui-core/components/table";
 
 // Props for Table
 interface TableProps {

@@ -3,7 +3,7 @@ import React from "react";
 import {
   Dialog,
   DialogContent,
-} from "@ueb-development/ui/components/dialog";
+} from "@ueb-development/ui-core/components/dialog";
 
 interface ModalProps {
   isOpen: boolean;

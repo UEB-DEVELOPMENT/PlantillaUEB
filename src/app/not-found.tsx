@@ -1,5 +1,5 @@
 import GridShape from "@/components/common/GridShape";
-import { Button } from "@ueb-development/ui/components/button";
+import { Button } from "@ueb-development/ui-core/components/button";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -26,8 +26,12 @@ export default function NotFound() {
           Página no encontrada
         </p>
 
-        <Button asChild variant="destructive">
-          <Link href="/">Volver al inicio</Link>
+        <Button
+          variant="destructive"
+          nativeButton={false}
+          render={<Link href="/" />}
+        >
+          Volver al inicio
         </Button>
       </div>
       <p className="absolute text-sm text-center text-white/50 -translate-x-1/2 bottom-6 left-1/2">

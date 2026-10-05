@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { Label as UebLabel } from "@ueb-development/ui/components/label";
+import { Label as UebLabel } from "@ueb-development/ui-core/components/label";
 import { twMerge } from "tailwind-merge";
 
 interface LabelProps {

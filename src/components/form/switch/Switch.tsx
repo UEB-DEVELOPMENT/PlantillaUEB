@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Switch as UebSwitch } from "@ueb-development/ui/components/switch";
+import { Switch as UebSwitch } from "@ueb-development/ui-core/components/switch";
 
 interface SwitchProps {
   label: string;

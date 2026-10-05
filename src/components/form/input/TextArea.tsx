@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Textarea as UebTextarea } from "@ueb-development/ui/components/textarea";
+import { Textarea as UebTextarea } from "@ueb-development/ui-core/components/textarea";
 
 interface TextareaProps {
   placeholder?: string; // Placeholder text

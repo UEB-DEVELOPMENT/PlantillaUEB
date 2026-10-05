@@ -5,13 +5,14 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@ueb-development/ui/components/dropdown-menu";
-import { Avatar, AvatarImage } from "@ueb-development/ui/components/avatar";
-import { Badge } from "@ueb-development/ui/components/badge";
-import { Button } from "@ueb-development/ui/components/button";
+} from "@ueb-development/ui-core/components/dropdown-menu";
+import { Avatar, AvatarImage } from "@ueb-development/ui-core/components/avatar";
+import { Badge } from "@ueb-development/ui-core/components/badge";
+import { Button } from "@ueb-development/ui-core/components/button";
 import { Bell } from "lucide-react";
 
 export default function NotificationDropdown() {
@@ -69,34 +70,30 @@ export default function NotificationDropdown() {
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button
-          onClick={handleClick}
-          variant="ghost"
-          size="icon-sm"
-          aria-label="Notificaciones"
-          className="relative text-primary-foreground hover:bg-white/10 hover:text-primary-foreground"
-        >
-          <Bell />
-          {notifying && (
-            <Badge className="absolute right-0.5 top-0.5 h-2 w-2 rounded-full bg-warning p-0 text-transparent">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-warning opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-warning" />
-            </Badge>
-          )}
-        </Button>
+      <DropdownMenuTrigger
+        render={<Button onClick={handleClick} variant="ghost" size="icon-sm" aria-label="Notificaciones" className="relative text-navbar-foreground hover:bg-white/10 hover:text-navbar-foreground" />}
+      >
+        <Bell />
+        {notifying && (
+          <Badge className="absolute right-0.5 top-0.5 h-2 w-2 rounded-full bg-warning p-0 text-transparent">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-warning opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-warning" />
+          </Badge>
+        )}
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
         align="end"
         className="w-[min(92vw,361px)] bg-popover p-2"
       >
-        <DropdownMenuLabel className="flex items-center justify-between border-b border-border pb-3">
-          <span className="text-lg font-semibold text-foreground">
-            Notificaciones
-          </span>
-          <Badge variant="secondary">{notifications.length}</Badge>
-        </DropdownMenuLabel>
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="flex items-center justify-between border-b border-border pb-3">
+            <span className="text-lg font-semibold text-foreground">
+              Notificaciones
+            </span>
+            <Badge variant="secondary">{notifications.length}</Badge>
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
 
         <div className="max-h-96 overflow-y-auto">
           {notifications.map((item, index) => (
@@ -130,8 +127,8 @@ export default function NotificationDropdown() {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem asChild className="justify-center py-2.5">
-          <Link href="/">Ver todas las notificaciones</Link>
+        <DropdownMenuItem className="justify-center py-2.5" render={<Link href="/" />}>
+          Ver todas las notificaciones
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

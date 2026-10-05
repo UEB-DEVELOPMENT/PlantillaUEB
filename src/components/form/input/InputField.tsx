@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Input as UebInput } from "@ueb-development/ui/components/input";
+import { Input as UebInput } from "@ueb-development/ui-core/components/input";
 
 interface InputProps {
   type?: "text" | "number" | "email" | "password" | "date" | "time" | string;

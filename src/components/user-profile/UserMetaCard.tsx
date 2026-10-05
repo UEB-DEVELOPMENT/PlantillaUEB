@@ -2,7 +2,7 @@
 import React from "react";
 import { useModal } from "../../hooks/useModal";
 import { Modal } from "../ui/modal";
-import { Button } from "@ueb-development/ui/components/button";
+import { Button } from "@ueb-development/ui-core/components/button";
 import Input from "../form/input/InputField";
 import Label from "../form/Label";
 import Image from "next/image";
@@ -46,13 +46,9 @@ export default function UserMetaCard() {
               <Button
                 variant="outline"
                 size="icon-lg"
-                asChild
+                nativeButton={false}
+                render={<a target="_blank" rel="noreferrer" href="https://www.facebook.com" />}
               >
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://www.facebook.com"
-                >
                 <svg
                   className="fill-current"
                   width="20"
@@ -66,11 +62,14 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-                </a>
               </Button>
 
-              <Button variant="outline" size="icon-lg" asChild>
-                <a href="https://x.com" target="_blank" rel="noreferrer">
+              <Button
+                variant="outline"
+                size="icon-lg"
+                nativeButton={false}
+                render={<a href="https://x.com" target="_blank" rel="noreferrer" />}
+              >
                 <svg
                   className="fill-current"
                   width="20"
@@ -84,15 +83,14 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-                </a>
               </Button>
 
-              <Button variant="outline" size="icon-lg" asChild>
-                <a
-                  href="https://www.linkedin.com/company/pimjo"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+              <Button
+                variant="outline"
+                size="icon-lg"
+                nativeButton={false}
+                render={<a href="https://www.linkedin.com/company/pimjo" target="_blank" rel="noreferrer" />}
+              >
                 <svg
                   className="fill-current"
                   width="20"
@@ -106,11 +104,14 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-                </a>
               </Button>
 
-              <Button variant="outline" size="icon-lg" asChild>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer">
+              <Button
+                variant="outline"
+                size="icon-lg"
+                nativeButton={false}
+                render={<a href="https://instagram.com" target="_blank" rel="noreferrer" />}
+              >
                 <svg
                   className="fill-current"
                   width="20"
@@ -124,7 +125,6 @@ export default function UserMetaCard() {
                     fill=""
                   />
                 </svg>
-                </a>
               </Button>
             </div>
           </div>

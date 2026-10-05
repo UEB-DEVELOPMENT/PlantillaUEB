@@ -8,7 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@ueb-development/ui/components/dropdown-menu";
+} from "@ueb-development/ui-core/components/dropdown-menu";
 import { MoreDotIcon } from "@/icons";
 // Dynamically import the ReactApexChart component
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
@@ -78,10 +78,8 @@ export default function MonthlyTarget() {
             </p>
           </div>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="dropdown-toggle">
-                <MoreDotIcon className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" />
-              </button>
+            <DropdownMenuTrigger className="dropdown-toggle">
+              <MoreDotIcon className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40">
               <DropdownMenuItem>Ver más</DropdownMenuItem>

@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Button as UebButton } from "@ueb-development/ui/components/button";
+import { Button as UebButton } from "@ueb-development/ui-core/components/button";
 
 interface ButtonProps {
   children: ReactNode; // Button text or content

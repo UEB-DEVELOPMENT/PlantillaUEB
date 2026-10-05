@@ -1,6 +1,6 @@
 "use client";
 import type React from "react";
-import { Checkbox as UebCheckbox } from "@ueb-development/ui/components/checkbox";
+import { Checkbox as UebCheckbox } from "@ueb-development/ui-core/components/checkbox";
 
 interface CheckboxProps {
   label?: string;

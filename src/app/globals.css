@@ -1,9 +1,5 @@
-@import 'tailwindcss';
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@ueb-development/theme/index.css";
-
-@custom-variant dark (&:is(.dark *));
+/* Tailwind, tema institucional, fuentes y utilidades del UEB Design System */
+@import "@ueb-development/ui-core/globals.css";
 
 @theme {
   --breakpoint-2xsm: 375px;
@@ -11,8 +7,7 @@
   --breakpoint-3xl: 2000px;
 }
 
-@source "../../node_modules/@ueb-development/ui/src/**/*.{ts,tsx}";
-@source "../../node_modules/@ueb-development/theme/**/*.css";
+@source "../**/*.{ts,tsx}";
 
 /* Sombras para navegación (template) */
 @utility shadow-slider-navigation {
@@ -39,14 +34,14 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-border, currentColor);
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
   body {
-    @apply relative font-normal font-sans z-1 bg-white;
+    @apply relative font-normal font-sans z-1 bg-background text-foreground;
   }
 }
 

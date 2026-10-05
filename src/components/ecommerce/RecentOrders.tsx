@@ -5,7 +5,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { Button } from "@ueb-development/ui/components/button";
+import { Button } from "@ueb-development/ui-core/components/button";
 import Badge from "../ui/badge/Badge";
 import Image from "next/image";
 

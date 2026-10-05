@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge as UebBadge } from "@ueb-development/ui/components/badge";
+import { Badge as UebBadge } from "@ueb-development/ui-core/components/badge";
 
 type BadgeVariant = "light" | "solid";
 type BadgeSize = "sm" | "md";

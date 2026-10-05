@@ -3,7 +3,7 @@ import {
   Avatar as UebAvatar,
   AvatarImage,
   AvatarBadge,
-} from "@ueb-development/ui/components/avatar";
+} from "@ueb-development/ui-core/components/avatar";
 
 interface AvatarProps {
   src: string; // URL of the avatar image

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Public_Sans } from 'next/font/google';
 import './globals.css';
 import "flatpickr/dist/flatpickr.css";
 import { ThemeProvider } from '@/context/ThemeContext';
 import TranslateNavGuard from '@/components/TranslateNavGuard';
+import { AccesibilityProvider } from "@ueb-development/ui-core/providers";
+import { AccesibilityToolbar } from "@ueb-development/ui-core/components/accessibility-toolbar";
 
 export const metadata: Metadata = {
   title: "UEB - Plantilla Institucional",
@@ -16,10 +17,6 @@ export const metadata: Metadata = {
   },
 };
 
-const publicSans = Public_Sans({
-  subsets: ["latin"],
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,9 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${publicSans.className} `}>
+      <body>
         <TranslateNavGuard />
-        <ThemeProvider>{children}</ThemeProvider>
+        <AccesibilityProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+          <AccesibilityToolbar position="bottom-right" />
+        </AccesibilityProvider>
       </body>
     </html>
   );

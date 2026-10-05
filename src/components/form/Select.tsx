@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@ueb-development/ui/components/select";
+} from "@ueb-development/ui-core/components/select";
 
 interface Option {
   value: string;
@@ -33,10 +33,12 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <UebSelect
-      value={selectedValue || undefined}
+      items={options}
+      value={selectedValue || null}
       onValueChange={(value) => {
-        setSelectedValue(value);
-        onChange(value); // Trigger parent handler
+        const next = value ?? "";
+        setSelectedValue(next);
+        onChange(next); // Trigger parent handler
       }}
     >
       <SelectTrigger className={`h-11 w-full rounded-lg ${className}`}>

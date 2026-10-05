@@ -3,7 +3,7 @@
 import React from "react";
 import DataTable from "@/components/DataTable";
 import type { ColumnDef } from "@tanstack/react-table";
-import { Badge } from "@ueb-development/ui/components/badge";
+import { Badge } from "@ueb-development/ui-core/components/badge";
 import Image from "next/image";
 
 interface Order {

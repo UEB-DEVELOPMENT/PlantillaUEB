@@ -1,4 +1,4 @@
-import { Button } from "@ueb-development/ui/components/button";
+import { Button } from "@ueb-development/ui-core/components/button";
 
 type PaginationProps = {
   currentPage: number;

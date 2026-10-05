@@ -12,12 +12,12 @@ import {
 } from "@fullcalendar/core";
 import { useModal } from "@/hooks/useModal";
 import { Modal } from "@/components/ui/modal";
-import { Button } from "@ueb-development/ui/components/button";
-import { Input } from "@ueb-development/ui/components/input";
+import { Button } from "@ueb-development/ui-core/components/button";
+import { Input } from "@ueb-development/ui-core/components/input";
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@ueb-development/ui/components/radio-group";
+} from "@ueb-development/ui-core/components/radio-group";
 
 interface CalendarEvent extends EventInput {
   extendedProps: {

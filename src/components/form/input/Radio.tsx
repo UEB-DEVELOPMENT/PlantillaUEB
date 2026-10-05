@@ -3,7 +3,7 @@ import React from "react";
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@ueb-development/ui/components/radio-group";
+} from "@ueb-development/ui-core/components/radio-group";
 
 interface RadioProps {
   id: string; // Unique ID for the radio button

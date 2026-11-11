@@ -5,6 +5,7 @@ import Label from '../Label';
 import Input from '../input/InputField';
 import Select from '../Select';
 import { ChevronDownIcon, EyeCloseIcon, EyeIcon, TimeIcon } from '../../../icons';
+import { InputGroup as UebInputGroup } from '@ueb-development/ui-core/components/input-group';
 import DatePicker from '@/components/form/date-picker';
 
 export default function DefaultInputs() {
@@ -44,22 +45,25 @@ export default function DefaultInputs() {
         </div>
         <div>
           <Label>Entrada de Contraseña</Label>
-          <div className="relative">
-            <Input
+          <UebInputGroup className="h-11">
+            <UebInputGroup.Input
               type={showPassword ? "text" : "password"}
               placeholder="Ingrese su contraseña"
             />
-            <button
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute z-30 -translate-y-1/2 cursor-pointer right-4 top-1/2"
-            >
-              {showPassword ? (
-                <EyeIcon className="fill-gray-500 dark:fill-gray-400" />
-              ) : (
-                <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400" />
-              )}
-            </button>
-          </div>
+            <UebInputGroup.Addon align="inline-end">
+              <UebInputGroup.Button
+                size="icon-xs"
+                aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <EyeIcon className="fill-gray-500 dark:fill-gray-400" />
+                ) : (
+                  <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400" />
+                )}
+              </UebInputGroup.Button>
+            </UebInputGroup.Addon>
+          </UebInputGroup>
         </div>
 
         <div>

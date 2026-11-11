@@ -28,7 +28,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({
       </CardHeader>
 
       {/* Card Body */}
-      <CardContent className="border-t border-border/50 p-4 sm:p-6">
+      <CardContent className="p-4 sm:p-6">
         <div className="space-y-6">{children}</div>
       </CardContent>
     </Card>

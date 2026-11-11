@@ -1,8 +1,10 @@
 "use client";
 import Checkbox from "@/components/form/input/Checkbox";
 import Input from "@/components/form/input/InputField";
+import { InputGroup } from "@ueb-development/ui-core/components/input-group";
 import Label from "@/components/form/Label";
 import Button from "@/components/ui/button/Button";
+import { Button as UebButton } from "@ueb-development/ui-core/components/button";
 import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/icons";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -33,7 +35,7 @@ export default function SignInForm() {
           </div>
           <div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5">
-              <button className="inline-flex items-center justify-center gap-3 py-3 text-sm font-normal text-gray-700 transition-colors bg-gray-100 rounded-lg px-7 hover:bg-gray-200 hover:text-gray-800 dark:bg-white/5 dark:text-white/90 dark:hover:bg-white/10">
+              <UebButton type="button" variant="secondary" className="h-11 gap-2 px-3">
                 <svg
                   width="20"
                   height="20"
@@ -58,9 +60,9 @@ export default function SignInForm() {
                     fill="#EB4335"
                   />
                 </svg>
-                Iniciar sesión con Google
-              </button>
-              <button className="inline-flex items-center justify-center gap-3 py-3 text-sm font-normal text-gray-700 transition-colors bg-gray-100 rounded-lg px-7 hover:bg-gray-200 hover:text-gray-800 dark:bg-white/5 dark:text-white/90 dark:hover:bg-white/10">
+                Google
+              </UebButton>
+              <UebButton type="button" variant="secondary" className="h-11 gap-2 px-3">
                 <svg
                   width="21"
                   className="fill-current"
@@ -71,8 +73,8 @@ export default function SignInForm() {
                 >
                   <path d="M15.6705 1.875H18.4272L12.4047 8.75833L19.4897 18.125H13.9422L9.59717 12.4442L4.62554 18.125H1.86721L8.30887 10.7625L1.51221 1.875H7.20054L11.128 7.0675L15.6705 1.875ZM14.703 16.475H16.2305L6.37054 3.43833H4.73137L14.703 16.475Z" />
                 </svg>
-                Iniciar sesión con X
-              </button>
+                X
+              </UebButton>
             </div>
             <div className="relative py-3 sm:py-5">
               <div className="absolute inset-0 flex items-center">
@@ -96,22 +98,24 @@ export default function SignInForm() {
                   <Label>
                     Contraseña <span className="text-destructive">*</span>{" "}
                   </Label>
-                  <div className="relative">
-                    <Input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Ingresa tu contraseña"
+                  <InputGroup className="h-11">
+                    <InputGroup.Input
+                      type={showPassword ? "text" : "password"} placeholder="Ingresa tu contraseña"
                     />
-                    <span
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute z-30 -translate-y-1/2 cursor-pointer right-4 top-1/2"
-                    >
-                      {showPassword ? (
-                        <EyeIcon className="fill-gray-500 dark:fill-gray-400" />
-                      ) : (
-                        <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400" />
-                      )}
-                    </span>
-                  </div>
+                    <InputGroup.Addon align="inline-end">
+                      <InputGroup.Button
+                        size="icon-xs"
+                        aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? (
+                          <EyeIcon className="fill-gray-500 dark:fill-gray-400" />
+                        ) : (
+                          <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400" />
+                        )}
+                      </InputGroup.Button>
+                    </InputGroup.Addon>
+                  </InputGroup>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -128,7 +132,7 @@ export default function SignInForm() {
                   </Link>
                 </div>
                 <div>
-                  <Button className="w-full" size="sm">
+                  <Button className="h-11 w-full text-base" size="md">
                     Iniciar sesión
                   </Button>
                 </div>

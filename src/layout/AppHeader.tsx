@@ -21,7 +21,7 @@ const AppHeader: React.FC = () => {
       </NavbarStart>
 
       <NavbarCenter>
-        <span className="notranslate truncate font-brand text-lg sm:text-xl">
+        <span className="notranslate whitespace-nowrap px-2 py-1 font-brand text-2xl leading-normal sm:text-3xl">
           Plantilla UEB
         </span>
       </NavbarCenter>

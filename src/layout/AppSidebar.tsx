@@ -33,9 +33,7 @@ import {
   ClipboardList,
   FileText,
   LayoutDashboard,
-  LifeBuoy,
   LogIn,
-  LogOut,
   Table2,
   UserCircle,
 } from "lucide-react";
@@ -213,28 +211,11 @@ const AppSidebar: React.FC = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              size="sm"
-              render={<Link href="/profile" />}
-              tooltip="Soporte"
-            >
-              <LifeBuoy />
-              <span>Soporte</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              size="sm"
-              render={<Link href="/signin" />}
-              tooltip="Cerrar sesión"
-            >
-              <LogOut />
-              <span>Cerrar sesión</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <div className="px-2 pt-3 text-center text-xs leading-relaxed text-sidebar-foreground/80 group-data-[collapsible=icon]:hidden">
+          <p className="font-brand text-lg">Vivimos la transformación</p>
+          <p className="mt-1">Copyright © 2026</p>
+          <p>Dirección de TIC&apos;s | UEB</p>
+        </div>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
